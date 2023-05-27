@@ -1,0 +1,51 @@
+@import '@/styles/colors';
+
+.outer {
+  cursor: pointer;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+
+  .link {
+    user-select: none;
+    -webkit-user-drag: none;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 8px 16px;
+    width: 100%;
+  }
+
+  &:hover {
+    font-weight: 600;
+  }
+
+  // Use this code for adding dynamic underline
+  // &:hover {
+  //   &::after {
+  //     width: 100%;
+  //   }
+  // }
+  //
+  // &::after {
+  //   content: "";
+  //   position: relative;
+  //   display: block;
+  //   width: 0%;
+  //   height: 1px;
+  //   bottom: -2px;
+  //   left: 0;
+  //   background-color: #000;
+  //   transition: width 0.2s;
+  // }
+}
+
+// .active {
+//   font-weight: 600;
+//   // color: $primary-color;
+//
+//   &::after {
+//     background-color: $primary-color;
+//   }
+// }

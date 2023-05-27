@@ -1,0 +1,29 @@
+@import '@/styles/colors';
+
+.container {
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  height: 400px;
+  width: 400px;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  position: relative;
+  top: 100%;
+
+  color: white;
+  background-color: $primary-color;
+  opacity: 85%;
+
+  height: 100%;
+  width: 100%;
+
+  transition: all 200ms;
+}

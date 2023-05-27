@@ -1,0 +1,48 @@
+@import '@/styles/colors';
+
+.article {
+  height: 400px;
+  width: 400px;
+  // transition: height 200ms, width 200ms;
+
+  &.focused {
+    .container {
+      transition: all 50ms;
+    }
+  }
+}
+
+.container {
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 200ms ease-in;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  position: relative;
+  top: 100%;
+
+  color: white;
+  background-color: $primary-color;
+  opacity: 85%;
+
+  height: 100%;
+  width: 100%;
+
+  transition: all 200ms;
+}
+
+  .focused {
+    padding: 24px;
+    height: 1000px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.08);
+    // transition: height 200ms, width 200ms;
+  }

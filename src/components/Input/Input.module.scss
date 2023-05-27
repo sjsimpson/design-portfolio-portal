@@ -1,0 +1,61 @@
+.inputContainer {
+  cursor: pointer;
+
+  display: inline-flex;
+  flex-direction: row;
+
+  height: 56px;
+  width: 100%;
+
+  margin-bottom: 16px;
+}
+
+.input {
+  cursor: pointer;
+
+  display: inline-flex;
+  // align-items: center;
+  box-sizing: border-box;
+  flex-direction: row;
+
+  height: 100%;
+  width: 100%;
+
+  padding: 16px;
+  background-color: white;
+
+  border: 1px solid black;
+
+  font-size: 16px;
+  line-height: 24px;
+
+  outline: none;
+}
+
+.label {
+  cursor: pointer;
+  position: absolute;
+
+  transform: translate(17px, 17px);
+  font-size: 16px;
+  line-height: 24px;
+
+  transition: 100ms;
+}
+
+.active {
+  cursor: auto;
+  position: absolute;
+
+  padding: 2px;
+
+  height: 16px;
+  transform: translate(15px, -12px);
+
+  background-color: white;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
