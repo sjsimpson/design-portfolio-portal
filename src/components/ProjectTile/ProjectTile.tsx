@@ -48,7 +48,7 @@ export default function ProjectTile(props: ProjectTileProps) {
           top: `${position}px`,
         }}
       >
-        some content here
+        {props.name}
       </div>
     </Link>
   )

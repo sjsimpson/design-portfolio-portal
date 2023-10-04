@@ -1,8 +1,10 @@
+'use client'
+
 import Layout from '@/components/Layout'
 import { Roboto_Mono } from 'next/font/google'
 import ProjectTile from '@/components/ProjectTile'
 import styles from '@/styles/Work.module.scss'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { trpc } from '@/utils/trpc'
 import { useMemo } from 'react'
 
@@ -33,7 +35,7 @@ const static_projects = [
 ]
 
 export default function Work() {
-  const router = useRouter()
+  const pathname = usePathname()
   const projects = trpc.project.list.useQuery()
 
   return (
@@ -48,7 +50,7 @@ export default function Work() {
               <ProjectTile
                 key={project.id}
                 name={project.title}
-                href={`${router.asPath}/${project.id}`}
+                href={`${pathname}/${project.id}`}
                 thumbnail={project.thumbnail}
               />
             ))}
@@ -56,7 +58,7 @@ export default function Work() {
             <ProjectTile
               key={index}
               name={project.name}
-              href={`${router.asPath}/${project._id}`}
+              href={`${pathname}/${project._id}`}
               thumbnail={project.thumbnail}
             />
           ))}

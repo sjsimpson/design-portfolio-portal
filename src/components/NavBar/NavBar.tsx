@@ -25,6 +25,10 @@ const navLinks = [
     href: '/projects',
     name: 'Projects',
   },
+  {
+    href: '/admin',
+    name: 'Admin',
+  },
 ]
 
 function NavBar() {
@@ -32,28 +36,31 @@ function NavBar() {
   const router = useRouter()
 
   const position = useMemo(() => {
-    const index = navLinks.findIndex((link) => link.href === router.asPath)
+    const rootPath = router.asPath.split('/')[1]
+    const index = navLinks.findIndex(
+      (link) => link.href.slice(1, link.href.length) === rootPath
+    )
 
     if (index !== -1) {
       return { left: `${100 * (index + 1)}px` }
     }
   }, [router.asPath])
 
-  if (session.status === 'authenticated') {
-    return (
-      <div className={styles.navbar}>
-        <div className={styles.logo}></div>
-        <div className={styles.container}>
-          <div className={styles.navlinks}>
-            <div className={styles.underline} style={position}></div>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} name={link.name} />
-            ))}
-          </div>
+  // if (session.status === 'authenticated') {
+  return (
+    <div className={styles.navbar}>
+      <div className={styles.logo}></div>
+      <div className={styles.container}>
+        <div className={styles.navlinks}>
+          <div className={styles.underline} style={position}></div>
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} name={link.name} />
+          ))}
         </div>
       </div>
-    )
-  }
+    </div>
+  )
+  // }
 
   return null
 }

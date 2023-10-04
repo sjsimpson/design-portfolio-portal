@@ -1,9 +1,7 @@
-import NextAuth from 'next-auth'
+import NextAuth, { Session, User } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '../../../server/prisma'
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
@@ -17,16 +15,12 @@ export const authOptions = {
     signIn: '/auth/signin',
   },
   callbacks: {
+    async session(ctx: any) {
+      console.log('ctx', ctx)
+      return ctx.session
+    },
     async redirect({ url, baseUrl }: { url: any; baseUrl: any }) {
-      console.log('url', url)
-      console.log('baseUrl', baseUrl)
-
       return baseUrl + '/'
-      // // Allows relative callback URLs
-      // if (url.startsWith('/')) return `${baseUrl}${url}`
-      // // Allows callback URLs on the same origin
-      // else if (new URL(url).origin === baseUrl) return url
-      // return baseUrl
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
